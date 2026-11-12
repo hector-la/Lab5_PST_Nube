@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "author": "Hector LaMota",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "id": "esp",
+      "type": "board-esp32-devkit-c-v4",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "id": "dht1",
+      "type": "wokwi-dht22",
+      "top": -40,
+      "left": 250,
+      "attrs": {
+        "temperature": "25.4",
+        "humidity": "61"
+      }
+    },
+    {
+      "id": "relay1",
+      "type": "wokwi-relay-module",
+      "top": 150,
+      "left": 250,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [
+      "esp:TX",
+      "$serialMonitor:RX",
+      "gray",
+      []
+    ],
+    [
+      "esp:RX",
+      "$serialMonitor:TX",
+      "gray",
+      []
+    ],
+    [
+      "dht1:VCC",
+      "esp:3V3",
+      "red",
+      [
+        "v10",
+        "h-25",
+        "v185",
+        "h-280",
+        "v-200"
+      ]
+    ],
+    [
+      "dht1:SDA",
+      "esp:4",
+      "green",
+      [
+        "v35",
+        "h-60"
+      ]
+    ],
+    [
+      "dht1:GND",
+      "esp:GND.2",
+      "black",
+      []
+    ],
+    [
+      "relay1:VCC",
+      "esp:3V3",
+      "red",
+      [
+        "h-15",
+        "v60",
+        "h-265",
+        "v-210"
+      ]
+    ],
+    [
+      "relay1:IN",
+      "esp:5",
+      "orange",
+      []
+    ],
+    [
+      "relay1:GND",
+      "esp:GND.3",
+      "black",
+      []
+    ]
+  ],
+  "dependencies": {}
+}
